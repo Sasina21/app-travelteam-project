@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 
 import { Container, Content, Tab, Tabs, ScrollableTab } from 'native-base';
 import DailyTable from './DailyTable'
-import HeaderBar from './HeaderBar'
-import FooterBar from './FooterBar'
 
 export default class TabsScrollableExample extends Component {
+  static navigationOptions = {
+    headerTitle: 'ชื่อ Trips',
+  }
   render() {
     return (
       <Container>
-          <HeaderBar/>
-          
             <Tabs renderTabBar={()=> <ScrollableTab />}>
               <Tab heading="Day 1">
               <Content style={{paddingBottom: "100%"}}>
@@ -30,8 +29,6 @@ export default class TabsScrollableExample extends Component {
               <DailyTable/>
               </Tab>
             </Tabs>
-        
-        <FooterBar/>
       </Container>
     );
   }

@@ -14,6 +14,8 @@ import Home from './src/Home'
 import Schedule from './src/Schedule'
 import ChatBox from './src/Chat'
 import GetHelp from './src/GetHelp'
+import TripTable from './src/TripTable'
+import SignIn from './src/SignIn'
 
 
 // import MainScreen from 
@@ -26,8 +28,9 @@ const instructions = Platform.select({
 });
 
 const TabNavigator = createBottomTabNavigator({
-  Home: {
+  MyTrips: {
     screen: Home,
+    // headerTitle: "My Trips"
   },
   Schedule: {screen: Schedule},
   ChatBox: {screen: ChatBox},
@@ -50,21 +53,22 @@ const TabNavigator = createBottomTabNavigator({
 
 
 const MainNavigator = createStackNavigator({
+  // SignIn: {
+  //   screen: SignIn,
+  // },
   TabNavigator: {
     screen: TabNavigator,
-    navigationOptions: () => ({
-      // headerTintColor: 'red',
-      headerStyle:{
-        backgroundColor: '#ffca28',
-        elevation: 0,
-        showdowOpacity: 0,
-      },
-    })
-  }
+  },TripTable:{
+    screen: TripTable,
+  },
 },{
   defaultNavigationOptions: ({navigation}) => {
     return {
-      headerRight: <Text>hi</Text>
+      headerRight: <Text>hi</Text>,
+      headerTintColor: 'black',
+      headerStyle:{
+        backgroundColor: '#ffca28',
+      },
     }
   }
 }
